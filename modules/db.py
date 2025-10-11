@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from collections import defaultdict
-from datetime import datetime
+from datetime import datetime, UTC
 from typing import Dict, List, Optional, Tuple
 
 from fastapi import HTTPException, status
@@ -268,7 +268,7 @@ def checkout(user_id: str, promo_code: Optional[str]) -> dict:
         "discount_total": discount_total,
         "total_paid": total_paid,
         "promo_code": promo.code if promo else None,
-        "timestamp": datetime.utcnow().isoformat(),
+        "timestamp": datetime.now(UTC).isoformat(),
     }
     TRANSACTIONS_BY_USER[user_id].append(tx)
 
@@ -299,4 +299,3 @@ def seed_initial_data() -> None:
 
 # Seed on module import
 seed_initial_data()
-

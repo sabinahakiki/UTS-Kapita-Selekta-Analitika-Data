@@ -11,6 +11,7 @@ class SizeEnum(str, Enum):
     s = "s"
     m = "m"
     l = "l"
+    xl = "xl"
 
 
 class ColorEnum(str, Enum):
@@ -18,6 +19,7 @@ class ColorEnum(str, Enum):
     coklat = "coklat"
     hijau = "hijau"
     pink = "pink"
+    hitam = "hitam"
 
 
 class VariantCreate(BaseModel):
